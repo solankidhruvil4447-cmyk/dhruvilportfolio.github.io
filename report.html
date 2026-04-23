@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altrion Advisors — Project Report | Dhruvil Solanki</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Additional report-specific styles that enhance the existing design */
+    .report-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .report-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+
+    .report-hero-title {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .report-hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    .report-hero-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .report-hero-stat .num {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .report-hero-stat .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .report-hero-img {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .report-hero-img img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: 0px -100px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+
+    .report-hero-img .live-badge {
+      color: var(--primary);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 1rem;
+    }
+
+    /* Section Titles */
+    .report-section {
+      margin-top: 5rem;
+    }
+
+    .report-section h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .report-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 4rem;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    /* Metric Cards (similar to home) */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .metric-card .num {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .metric-card .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .metric-card .desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Comparison Bar */
+    .comparison {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .bar-column {
+      flex: 1;
+      min-width: 250px;
+    }
+    .bar-item {
+      margin-bottom: 1.5rem;
+    }
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+    .bar-bg {
+      height: 40px;
+      background: #1e1e24;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 1rem;
+      font-weight: 600;
+      color: white;
+    }
+    .bar-fill.highlight { background: var(--primary); }
+    .multiplier-box {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+    }
+    .multiplier-box .value {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .multiplier-box .text {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* Highlight Box */
+    .highlight {
+      background: linear-gradient(145deg, #1c1225 0%, #0a0f1a 100%);
+      border: 2px solid var(--primary);
+      border-radius: 24px;
+      padding: 3rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .highlight .big-num {
+      font-size: 6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .highlight .caption {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      color: white;
+    }
+
+    /* Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2.5rem 0;
+      font-size: 0.95rem;
+    }
+    .data-table th {
+      background: var(--primary);
+      color: #000;
+      font-weight: 700;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .data-table td {
+      padding: 0.9rem 1.2rem;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Insight grid */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .insight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .insight-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .insight-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .insight-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Quote */
+    .quote-box {
+      background: var(--bg-card);
+      border-left: 6px solid var(--primary);
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: white;
+    }
+    .quote-box .author {
+      margin-top: 1.5rem;
+      font-style: normal;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .skill-tag {
+      padding: 0.6rem 1.4rem;
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+    .skill-tag:hover {
+      background: var(--primary);
+      color: #000;
+    }
+
+    /* Recommendation */
+    .recommendation {
+      background: linear-gradient(145deg, #1c1225 0%, #0a0f1a 100%);
+      border: 2px solid var(--primary);
+      border-radius: 24px;
+      padding: 3rem;
+      margin: 3rem 0;
+    }
+    .recommendation h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .recommendation p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .recommendation .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .recommendation .item h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .report-hero {
+        grid-template-columns: 1fr;
+      }
+      .metrics-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .insight-grid, .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="dark">
+  <!-- Navigation bar (consistent with your portfolio) -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="report.html" class="active">Report</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="report-main">
+    <!-- Hero -->
+    <div class="report-hero">
+      <div>
+        <span class="eyebrow">Market Validation Study · Q1 2026</span>
+        <h1 class="report-hero-title">Transparent Orchestration</h1>
+        <p class="report-hero-sub">Testing a single‑SLA vendor platform that combines industrial automation and digital services under one transparent contract.</p>
+        <div class="report-hero-stats">
+          <div class="report-hero-stat"><div class="num">60</div><div class="label">Days Active</div></div>
+          <div class="report-hero-stat"><div class="num">50+</div><div class="label">Outreach</div></div>
+          <div class="report-hero-stat"><div class="num">20%</div><div class="label">Response Rate</div></div>
+        </div>
+      </div>
+      <div class="report-hero-img">
+        <img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" alt="Altrion Platform">
+        <div class="live-badge">LIVE PLATFORM · altrion-orchestrate‑connect.lovable.app</div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="report-section">
+      <h2>Performance at a Glance</h2>
+      <div class="metrics-row">
+        <div class="metric-card"><div class="num">50+</div><div class="label">Emails Sent</div><div class="desc">Targeted CTOs, Founders & Ops Heads at B2B SaaS and industrial firms.</div></div>
+        <div class="metric-card"><div class="num">25</div><div class="label">Follow‑ups</div><div class="desc">Multi‑touch sequence (Day 1, 3, 7).</div></div>
+        <div class="metric-card"><div class="num">10</div><div class="label">Replies</div><div class="desc">Including 3 meaningful engagements with detailed feedback.</div></div>
+        <div class="metric-card"><div class="num">1</div><div class="label">Discovery Call</div><div class="desc">Full scoping conversation on industrial control panel integration.</div></div>
+      </div>
+    </div>
+
+    <!-- Response Rate Comparison -->
+    <div class="report-section">
+      <h2>Response Rate Benchmark</h2>
+      <div class="comparison">
+        <div class="bar-column">
+          <div class="bar-item">
+            <div class="bar-label"><span>Industry Average</span><span>1–5%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:3%">3%</div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label"><span style="color:var(--primary)">Altrion Advisors</span><span style="color:var(--primary)">20%</span></div>
+            <div class="bar-bg"><div class="bar-fill highlight" style="width:20%">20%</div></div>
+          </div>
+        </div>
+        <div class="multiplier-box">
+          <div class="value">4–20x</div>
+          <div class="text">Higher Response Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlight -->
+    <div class="highlight">
+      <div class="big-num">20%</div>
+      <div class="caption">Email Response Rate — <strong>4‑20x above industry benchmark</strong></div>
+      <p style="max-width:600px; margin:1rem auto 0;">This validates strong market curiosity for a “Transparent Orchestration” model — businesses want an alternative to fragmented vendor management.</p>
+    </div>
+
+    <!-- The Platform -->
+    <div class="report-section">
+      <h2>The Platform</h2>
+      <p style="color:var(--text-secondary); margin-bottom:2rem;">A fully functional landing page communicating the “Transparent Orchestration” value proposition — showing exactly what clients pay and what vendors cost.</p>
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem;">
+        <div class="insight-card">
+          <img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" style="width:100%; height:160px; object-fit:cover; object-position:0px -100px; border-radius:8px;">
+          <h4 style="margin-top:1rem;">Hero Section</h4>
+          <p style="font-size:0.9rem;">“One Partnership. Infinite Execution” — 8 service categories from web design to IoT sensors.</p>
+        </div>
+        <div class="insight-card">
+          <img src="https://i.ibb.co/hFm5CB9s/Screenshot-20260423-005621-Chrome.jpg" style="width:100%; height:160px; object-fit:cover; object-position:0px -100px; border-radius:8px;">
+          <h4 style="margin-top:1rem;">Transparency Pricing</h4>
+          <p style="font-size:0.9rem;">Line‑item breakdown separating vendor cost from Altrion’s 18% fee.</p>
+        </div>
+        <div class="insight-card">
+          <img src="https://i.ibb.co/bjfC0r2S/Altrion-Solutions-Brochure-9.jpg" style="width:100%; height:160px; object-fit:contain; background:#0a0a0a;">
+          <h4 style="margin-top:1rem;">Service Brochure</h4>
+          <p style="font-size:0.9rem;">Industrial automation & digital services integration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outreach Campaign -->
+    <div class="report-section">
+      <h2>Outreach Campaign</h2>
+      <table class="data-table">
+        <tr><th>Metric</th><th>Result</th><th>Interpretation</th></tr>
+        <tr><td>Total Emails Sent</td><td>50+</td><td>Targeted decision‑makers at B2B SaaS & industrial firms</td></tr>
+        <tr><td>Follow‑up Sequence</td><td>20‑25 emails</td><td>Multi‑touch cadence: Day 1, Day 3, Day 7</td></tr>
+        <tr><td>Total Replies</td><td><strong style="color:var(--primary)">10 (20%)</strong></td><td>Statistically significant – 4‑20x industry average</td></tr>
+        <tr><td>Positive Engagements</td><td>3</td><td>Helcim, Konstruct Digital, Jane Team</td></tr>
+        <tr><td>Rejections with Insights</td><td>4</td><td>Geographic restrictions & partner definition mismatches</td></tr>
+      </table>
+
+      <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:2rem 0;">
+        <span class="skill-tag">MachineMetrics</span> <span class="skill-tag">Eigen Innovations</span> <span class="skill-tag">Zip</span>
+        <span class="skill-tag">Innovate‑Ops</span> <span class="skill-tag">Orkes</span> <span class="skill-tag">Konstruct Digital</span>
+        <span class="skill-tag">7shifts</span> <span class="skill-tag">Helcim</span> <span class="skill-tag">Jane Team</span> <span class="skill-tag">+40 more</span>
+      </div>
+
+      <img src="https://i.ibb.co/4ZqTCVJB/Screenshot-20260423-005713-Gmail.jpg" style="width:100%; height:280px; object-fit:cover; object-position:0px -120px; border:1px solid var(--border-light); border-radius:12px;" alt="Gmail Sent Folder">
+      <p style="color:var(--text-muted); text-align:center; margin-top:0.8rem;">◆ Gmail sent folder — “Impressed by what [Company] is building.”</p>
+    </div>
+
+    <!-- Key Learnings -->
+    <div class="report-section">
+      <h2>What We Learned</h2>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="icon">🌍</div>
+          <h4>Geographic Restrictions Matter</h4>
+          <p>Helcim’s rejection revealed they only support US and Canadian businesses — a critical filter we hadn’t considered. Future outreach must segment by regional compliance.</p>
+        </div>
+        <div class="insight-card">
+          <div class="icon">🔤</div>
+          <h4>“Partner” Definitions Vary</h4>
+          <p>Helcim defines “Partner” as “SaaS Integrator embedding our product.” We pitched as “Services Orchestrator” – immediate disqualification.</p>
+        </div>
+        <div class="insight-card">
+          <div class="icon">⏳</div>
+          <h4>Sales Cycles Are Longer</h4>
+          <p>Zero contracts closed in 60 days. Industrial services require 3‑6 months of trust‑building before commitment.</p>
+        </div>
+        <div class="insight-card">
+          <div class="icon">📧</div>
+          <h4>Direct Contact Wins</h4>
+          <p>7shifts replied with an automated message — our inquiry went to a generic contact form. Direct email to decision‑makers is non‑negotiable.</p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        “After reviewing your application for Altrion Systems, we will not be moving forward with a formal partnership. Our Partner Program is strictly reserved for SaaS Integrators… Helcim only supports businesses in the United States and Canada.”
+        <div class="author">— Helcim Partner Team</div>
+      </div>
+    </div>
+
+    <!-- Email Evidence (small preview) -->
+    <div class="report-section">
+      <h2>Prospect Responses</h2>
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem;">
+        <img src="https://i.ibb.co/W43xG1DF/Screenshot-20260423-005835-Gmail.jpg" style="width:100%; height:180px; object-fit:cover; object-position:0px -160px; border-radius:8px; border:1px solid var(--border-light);">
+        <img src="https://i.ibb.co/Df5Jd3yK/Screenshot-20260423-005848-Gmail.jpg" style="width:100%; height:180px; object-fit:cover; object-position:0px -160px; border-radius:8px; border:1px solid var(--border-light);">
+        <img src="https://i.ibb.co/1tw79DqN/Screenshot-20260423-005728-Gmail.jpg" style="width:100%; height:180px; object-fit:cover; object-position:0px -160px; border-radius:8px; border:1px solid var(--border-light);">
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="recommendation">
+      <span class="eyebrow">Recommended Pivot</span>
+      <h3>PLC Panel Upgrades with Full Transparency</h3>
+      <p>Build a specialized single‑use‑case landing page for one high‑demand industrial service.</p>
+      <div class="two-col">
+        <div class="item"><h4>🎯 Target Audience</h4><p>Plant Managers & Maintenance Directors at US‑based manufacturing facilities.</p></div>
+        <div class="item"><h4>📢 Channel Strategy</h4><p>LinkedIn outreach + retargeting ads to the 10 warm email replies from this validation sprint.</p></div>
+      </div>
+    </div>
+
+    <!-- Skills Demonstrated -->
+    <div class="report-section">
+      <h2>Competencies Demonstrated</h2>
+      <div class="skills-cloud">
+        <span class="skill-tag">Market Validation</span>
+        <span class="skill-tag">Lean Startup</span>
+        <span class="skill-tag">B2B Cold Emails</span>
+        <span class="skill-tag">Response Rate Analysis</span>
+        <span class="skill-tag">AI‑Assisted Web Dev</span>
+        <span class="skill-tag">Value Proposition Design</span>
+        <span class="skill-tag">CRM Pipeline</span>
+        <span class="skill-tag">Technical Writing</span>
+        <span class="skill-tag">Industrial IoT</span>
+        <span class="skill-tag">PLC/Panel Knowledge</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Data Visualization</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left"><p>© 2026 Dhruvil Solanki</p></div>
+        <div class="footer-right">
+          <a href="mailto:sdhruvil51@gmail.com">Email</a>
+          <a href="https://wa.me/919824676660">WhatsApp</a>
+          <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Resume</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
