@@ -5,9 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Dhruvil Solanki</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .contact-section { min-height: 80vh; display: flex; align-items: center; padding: 8rem 0 4rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
+    .contact-grid .card { text-align: center; padding: 2.5rem 2rem; }
+    .contact-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .contact-grid .card h3 { color: var(--primary); margin-bottom: 0.8rem; }
+    .contact-grid .card a { color: var(--text-secondary); word-break: break-all; }
+    .contact-grid .card a:hover { color: var(--primary); }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="dark">
+<body data-theme="system">
+  <canvas id="bg-canvas"></canvas>
+
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -16,6 +30,9 @@
         <a href="work.html">Work</a>
         <a href="report.html">Report</a>
         <a href="contact.html" class="active">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span><span class="icon-auto">🌓</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -23,33 +40,34 @@
   <main>
     <section class="contact-section">
       <div class="container narrow">
-        <h1 class="contact-title">Let's connect.</h1>
-        <p class="contact-description">I'm currently open to collaborations, research roles, and B2B validation projects. Reach out via email, WhatsApp, or download my resume.</p>
+        <div style="text-align:center;">
+          <span class="eyebrow">Get in touch</span>
+          <h1 style="font-size:3.5rem; margin-bottom:1rem;">Let's connect.</h1>
+          <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">I'm open to collaborations, research roles, and B2B validation projects.</p>
+        </div>
 
-        <div class="contact-methods">
-          <div class="contact-card">
+        <div class="contact-grid">
+          <div class="card">
             <div class="contact-icon">📧</div>
             <h3>Email</h3>
             <a href="mailto:sdhruvil51@gmail.com">sdhruvil51@gmail.com</a>
-            <p>Response within 24 hours</p>
+            <p style="font-size:0.85rem; margin-top:0.5rem;">Response within 24 hours</p>
           </div>
-          <div class="contact-card">
+          <div class="card">
             <div class="contact-icon">💬</div>
             <h3>WhatsApp</h3>
             <a href="https://wa.me/919824676660">+91 98246 76660</a>
-            <p>Quick replies, direct chat</p>
+            <p style="font-size:0.85rem; margin-top:0.5rem;">Quick replies, direct chat</p>
           </div>
-          <div class="contact-card">
+          <div class="card">
             <div class="contact-icon">📄</div>
             <h3>Resume</h3>
             <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Download PDF</a>
-            <p>Full experience & projects</p>
+            <p style="font-size:0.85rem; margin-top:0.5rem;">Full experience & projects</p>
           </div>
         </div>
 
-        <div class="contact-location">
-          <p>Based in Ahmedabad, India. Working remotely worldwide.</p>
-        </div>
+        <p style="text-align:center; color: var(--text-muted);">Based in Ahmedabad, India · Working remotely worldwide</p>
       </div>
     </section>
   </main>
@@ -57,8 +75,8 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-left"><p>© 2026 Dhruvil Solanki</p></div>
-        <div class="footer-right">
+        <p>© 2026 Dhruvil Solanki</p>
+        <div class="footer-links">
           <a href="mailto:sdhruvil51@gmail.com">Email</a>
           <a href="https://wa.me/919824676660">WhatsApp</a>
           <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Resume</a>
@@ -67,6 +85,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
