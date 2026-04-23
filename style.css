@@ -166,7 +166,6 @@ strong { color: var(--text-primary); }
   box-shadow: 0 0 15px var(--primary-glow);
 }
 
-/* Show only ONE icon based on current theme */
 .theme-toggle .icon-sun,
 .theme-toggle .icon-moon,
 .theme-toggle .icon-auto {
@@ -174,17 +173,14 @@ strong { color: var(--text-primary); }
   transition: opacity 0.2s, transform 0.3s;
 }
 
-/* Light mode: show moon (to switch to dark) */
 [data-theme="light"] .theme-toggle .icon-sun { opacity: 0; transform: scale(0); }
 [data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: scale(1); }
 [data-theme="light"] .theme-toggle .icon-auto { opacity: 0; transform: scale(0); }
 
-/* Dark mode: show sun (to switch to light) */
 [data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: scale(1); }
 [data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: scale(0); }
 [data-theme="dark"] .theme-toggle .icon-auto { opacity: 0; transform: scale(0); }
 
-/* System mode: show auto icon */
 [data-theme="system"] .theme-toggle .icon-sun { opacity: 0; transform: scale(0); }
 [data-theme="system"] .theme-toggle .icon-moon { opacity: 0; transform: scale(0); }
 [data-theme="system"] .theme-toggle .icon-auto { opacity: 1; transform: scale(1); }
