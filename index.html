@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark">
+<body data-theme="system">
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -16,6 +16,11 @@
         <a href="work.html">Work</a>
         <a href="report.html">Report</a>
         <a href="contact.html">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+          <span class="icon-auto">🌓</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -35,35 +40,20 @@
           </div>
           <div class="hero-visual">
             <div class="stat-block">
-              <div class="stat-item">
-                <span class="stat-number">20%</span>
-                <span class="stat-label">Response rate</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Outreach</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">4–20x</span>
-                <span class="stat-label">vs industry</span>
-              </div>
+              <div class="stat-item"><span class="stat-number">20%</span><span class="stat-label">Response rate</span></div>
+              <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Outreach</span></div>
+              <div class="stat-item"><span class="stat-number">4–20x</span><span class="stat-label">vs industry</span></div>
             </div>
             <div class="hero-graphic">
               <div class="circle-chart"></div>
               <div class="bar-chart">
-                <div class="bar" style="height: 60%"></div>
-                <div class="bar" style="height: 85%"></div>
-                <div class="bar" style="height: 40%"></div>
-                <div class="bar" style="height: 70%"></div>
+                <div class="bar" style="height:60%"></div><div class="bar" style="height:85%"></div><div class="bar" style="height:40%"></div><div class="bar" style="height:70%"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="line"></div>
-      </div>
+      <div class="scroll-hint"><span>Scroll</span><div class="line"></div></div>
     </section>
 
     <section class="intro">
@@ -74,7 +64,7 @@
             <p>Most founders build in the dark. I turn on the lights with 60-day validation sprints: landing pages, cold outreach, and real prospect conversations. No vanity metrics — only learnings that matter.</p>
           </div>
           <div class="intro-image">
-            <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki">
+            <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki" style="width:100%; height:auto; max-height:500px; object-fit:contain; border-radius:12px;">
           </div>
         </div>
       </div>
@@ -87,27 +77,14 @@
           <div class="preview-content">
             <h3>Altrion Advisors</h3>
             <p class="preview-desc">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
-            <ul class="preview-tags">
-              <li>Market Validation</li>
-              <li>B2B Outreach</li>
-              <li>PLC/IoT</li>
-            </ul>
+            <ul class="preview-tags"><li>Market Validation</li><li>B2B Outreach</li><li>PLC/IoT</li></ul>
             <a href="work.html" class="text-link">Read the case study →</a>
-            <a href="report.html" class="text-link" style="margin-left: 2rem;">Full project report →</a>
+            <a href="report.html" class="text-link" style="margin-left:2rem;">Full project report →</a>
           </div>
           <div class="preview-metrics">
-            <div class="metric">
-              <span class="value">20%</span>
-              <span class="label">Response rate</span>
-            </div>
-            <div class="metric">
-              <span class="value">50+</span>
-              <span class="label">Prospects reached</span>
-            </div>
-            <div class="metric">
-              <span class="value">3</span>
-              <span class="label">Key insights</span>
-            </div>
+            <div class="metric"><span class="value">20%</span><span class="label">Response rate</span></div>
+            <div class="metric"><span class="value">50+</span><span class="label">Prospects reached</span></div>
+            <div class="metric"><span class="value">3</span><span class="label">Key insights</span></div>
           </div>
         </div>
       </div>
@@ -117,9 +94,7 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-left">
-          <p>© 2026 Dhruvil Solanki</p>
-        </div>
+        <div class="footer-left"><p>© 2026 Dhruvil Solanki</p></div>
         <div class="footer-right">
           <a href="mailto:sdhruvil51@gmail.com">Email</a>
           <a href="https://wa.me/919824676660">WhatsApp</a>
