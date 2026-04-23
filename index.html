@@ -3,343 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhruvil Solanki | Portfolio</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0a0a0f;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #ffffff;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-    :root {
-      --primary: #FF5500;
-      --primary-glow: rgba(255, 85, 0, 0.3);
-      --accent-cyan: #00e5ff;
-      --accent-purple: #b388ff;
-      --accent-gold: #ffd700;
-      --accent-green: #00ff88;
-      --card-bg: #12121a;
-      --border-light: #2a2a35;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes glow { 0%,100% { box-shadow: 0 0 20px var(--primary-glow); } 50% { box-shadow: 0 0 50px var(--primary), 0 0 80px var(--accent-purple); } }
-    @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-    /* COVER */
-    .cover {
-      min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
-      background: linear-gradient(135deg, #0a0a0f 0%, #1a1025 50%, #0f1a1a 100%);
-    }
-    .cover::before {
-      content: ''; position: absolute; width: 200%; height: 200%;
-      background: radial-gradient(circle at 30% 50%, var(--primary-glow) 0%, transparent 50%);
-      animation: float 8s ease-in-out infinite;
-    }
-    .cover-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .cover-badge {
-      display: inline-block; background: linear-gradient(135deg, var(--primary), var(--accent-gold)); color: #000;
-      padding: 6px 18px; border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 3px; margin-bottom: 24px;
-    }
-    .cover h1 {
-      font-size: 72px; font-weight: 700; line-height: 1.1; margin-bottom: 20px;
-      background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 50%, var(--primary) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .cover h1 span { display: block; font-size: 28px; font-weight: 400; color: #aaa; -webkit-text-fill-color: #aaa; margin-top: 12px; }
-    .cover p { font-size: 18px; color: #ccc; margin-bottom: 32px; max-width: 500px; }
-    .cover-stats { display: flex; gap: 32px; }
-    .cover-stat .num { font-size: 36px; font-weight: 700; color: var(--accent-cyan); }
-    .cover-stat .txt { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #888; }
-    .cover-visual { position: relative; animation: scaleIn 1s ease; }
-    .cover-image { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-light); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .cover-glow { position: absolute; top: -10px; right: -10px; width: 100%; height: 100%; border: 2px solid var(--primary); border-radius: 8px; z-index: -1; animation: glow 3s infinite; }
-    .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 3px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--primary), transparent); }
-
-    /* NAV */
-    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--border-light); }
-    .logo { font-size: 20px; font-weight: 700; letter-spacing: 2px; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nav-links { display: flex; gap: 40px; }
-    .nav-links a { color: #888; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--accent-cyan); }
-
-    /* PROFILE */
-    .profile { padding: 80px 0; }
-    .profile-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center; }
-    .profile-image-wrapper { position: relative; }
-    .profile-image { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; border: 1px solid var(--border-light); filter: grayscale(10%) contrast(110%); }
-    .profile-accent { position: absolute; bottom: -15px; right: -15px; width: 120px; height: 120px; border: 3px solid var(--accent-purple); border-radius: 4px; z-index: -1; }
-    .profile-accent-2 { position: absolute; top: -15px; left: -15px; width: 80px; height: 80px; border: 2px solid var(--accent-cyan); border-radius: 4px; z-index: -1; }
-    .section-label { color: var(--accent-cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
-    .profile-content h2 { font-size: 36px; font-weight: 600; margin-bottom: 20px; }
-    .profile-content h2 span { color: var(--primary); }
-    .profile-content p { color: #bbb; margin-bottom: 24px; font-size: 16px; }
-    .contact-bar { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
-    .contact-item { display: flex; align-items: center; gap: 12px; color: #aaa; font-size: 14px; text-decoration: none; transition: color 0.3s; }
-    .contact-item:hover { color: var(--accent-cyan); }
-    .contact-icon { width: 40px; height: 40px; background: var(--card-bg); border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: var(--primary); }
-
-    /* STATS */
-    .stats-graphic { padding: 60px 0; }
-    .graphic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .graphic-card { background: var(--card-bg); border: 1px solid var(--border-light); padding: 40px 30px; text-align: center; transition: all 0.3s; }
-    .graphic-card:hover { transform: translateY(-8px); border-color: var(--accent-cyan); }
-    .graphic-icon { font-size: 48px; margin-bottom: 20px; }
-    .graphic-number { font-size: 56px; font-weight: 700; background: linear-gradient(135deg, var(--accent-cyan), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
-    .graphic-label { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-    .graphic-desc { color: #888; font-size: 13px; }
-    .trend-indicator { margin-top: 16px; color: var(--accent-green); font-size: 12px; }
-
-    /* WEBSITE LINK */
-    .website-card { padding: 40px 0; }
-    .link-showcase { background: linear-gradient(135deg, var(--card-bg) 0%, #1a1025 100%); border: 1px solid var(--border-light); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
-    .link-info h3 { font-size: 24px; margin-bottom: 8px; color: var(--accent-cyan); }
-    .link-info p { color: #aaa; font-size: 18px; }
-    .link-btn { display: inline-block; background: transparent; color: var(--primary); padding: 16px 36px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: 2px solid var(--primary); transition: all 0.3s; cursor: pointer; }
-    .link-btn:hover { background: var(--primary); color: #000; }
-
-    /* EXPERTISE */
-    .expertise { padding: 60px 0; }
-    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-    .expertise-card { background: var(--card-bg); border: 1px solid var(--border-light); padding: 40px 28px; transition: all 0.3s; }
-    .expertise-card:hover { transform: translateY(-8px); border-color: var(--primary); }
-    .card-icon { font-size: 36px; margin-bottom: 24px; color: var(--accent-cyan); }
-    .expertise-card h3 { font-size: 22px; margin-bottom: 16px; color: #fff; }
-    .expertise-card p { color: #999; font-size: 14px; }
-
-    /* FEATURED */
-    .featured { padding: 60px 0; }
-    .featured-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
-    .featured-title h2 { font-size: 32px; font-weight: 600; }
-    .featured-badge { background: linear-gradient(135deg, var(--primary), var(--accent-gold)); color: #000; padding: 8px 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-    .project-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--card-bg); border: 1px solid var(--border-light); padding: 40px; }
-    .project-metrics { display: flex; gap: 30px; margin: 24px 0; }
-    .project-metric .value { font-size: 42px; font-weight: 700; color: var(--accent-cyan); }
-    .project-metric .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
-    .project-info h3 { font-size: 24px; margin-bottom: 12px; }
-    .project-info p { color: #aaa; margin-bottom: 20px; font-size: 14px; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
-    .project-tag { padding: 4px 12px; background: transparent; border: 1px solid var(--border-light); color: #ccc; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-    .project-visual-graphic { display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(135deg, #1a1025 0%, #0f1a1a 100%); border: 1px solid var(--border-light); padding: 30px; }
-    .graphic-circle { width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--primary) 0deg 72deg, var(--accent-cyan) 72deg 180deg, var(--accent-purple) 180deg 360deg); margin-bottom: 24px; }
-    .graphic-bars { display: flex; gap: 8px; align-items: flex-end; height: 100px; margin-top: 20px; }
-    .bar { width: 30px; background: linear-gradient(to top, var(--primary), var(--accent-cyan)); }
-    .bar:nth-child(1) { height: 60px; } .bar:nth-child(2) { height: 90px; } .bar:nth-child(3) { height: 40px; } .bar:nth-child(4) { height: 75px; }
-
-    /* TIMELINE */
-    .timeline-section { padding: 60px 0; }
-    .timeline { display: flex; justify-content: space-between; position: relative; margin-top: 50px; }
-    .timeline::before { content: ''; position: absolute; top: 25px; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--primary), var(--accent-cyan), var(--accent-purple)); }
-    .timeline-item { text-align: center; position: relative; z-index: 1; }
-    .timeline-dot { width: 50px; height: 50px; background: var(--card-bg); border: 2px solid var(--primary); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-cyan); }
-    .timeline-label { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .timeline-date { font-size: 11px; color: #888; }
-
-    /* CTA */
-    .resume-cta { padding: 40px 0 60px; text-align: center; }
-    .resume-card { background: linear-gradient(135deg, #1a1025 0%, #0f1a1a 100%); border: 2px solid var(--primary); padding: 50px; max-width: 700px; margin: 0 auto; position: relative; overflow: hidden; }
-    .resume-card h3 { font-size: 28px; margin-bottom: 16px; }
-    .resume-card p { color: #aaa; margin-bottom: 32px; }
-    .button-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary, .btn-secondary { display: inline-block; padding: 16px 36px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: all 0.3s; cursor: pointer; border: 2px solid; }
-    .btn-primary { background: var(--primary); color: #000; border-color: var(--primary); }
-    .btn-primary:hover { background: transparent; color: var(--primary); }
-    .btn-secondary { background: transparent; color: var(--accent-cyan); border-color: var(--accent-cyan); }
-    .btn-secondary:hover { background: var(--accent-cyan); color: #000; }
-
-    /* FOOTER */
-    footer { padding: 40px 0; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; color: #666; font-size: 13px; }
-    .social-links { display: flex; gap: 24px; }
-    .social-links a { color: #888; text-decoration: none; transition: color 0.3s; }
-    .social-links a:hover { color: var(--accent-cyan); }
-
-    @media (max-width: 900px) {
-      .cover-content { grid-template-columns: 1fr; text-align: center; }
-      .cover p { margin-left: auto; margin-right: auto; }
-      .cover-stats { justify-content: center; }
-      .profile-grid { grid-template-columns: 1fr; }
-      .profile-image-wrapper { max-width: 350px; margin: 0 auto; }
-      .expertise-grid, .graphic-grid { grid-template-columns: 1fr; }
-      .project-showcase { grid-template-columns: 1fr; }
-      .cover h1 { font-size: 48px; }
-      .timeline { flex-direction: column; gap: 30px; }
-      .timeline::before { display: none; }
-    }
-    @media (max-width: 600px) {
-      .navbar { flex-direction: column; gap: 16px; }
-      .nav-links { gap: 20px; }
-      .contact-bar { flex-direction: column; }
-      .link-showcase { flex-direction: column; text-align: center; }
-    }
-  </style>
+  <title>Dhruvil Solanki — Founder & Researcher</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <section class="cover">
-    <div class="container" style="width: 100%;">
-      <div class="cover-content">
-        <div>
-          <span class="cover-badge">Market Validation Specialist</span>
-          <h1>Dhruvil Solanki<span>Engineer · Founder · Researcher</span></h1>
-          <p>Instrumentation engineer turned product validator. I test B2B ideas in the real world — 60-day sprints, real data, no vanity metrics.</p>
-          <div class="cover-stats">
-            <div class="cover-stat"><div class="num">4+</div><div class="txt">Years Engineering</div></div>
-            <div class="cover-stat"><div class="num">20%</div><div class="txt">Response Rate</div></div>
-            <div class="cover-stat"><div class="num">1</div><div class="txt">Validated Concept</div></div>
-          </div>
-        </div>
-        <div class="cover-visual">
-          <div class="cover-glow"></div>
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Technology Abstract" class="cover-image">
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
-  </section>
-
-  <div class="container">
-    <nav class="navbar">
-      <div class="logo">DHRUVIL.SOLANKI</div>
+<body class="dark">
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1w0aPZ9df1XR2uj33T39xiAFrhEC3TY_l/view?usp=drivesdk" target="_blank">Resume</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 
-  <section id="about" class="profile">
-    <div class="container">
-      <div class="profile-grid">
-        <div class="profile-image-wrapper">
-          <div class="profile-accent"></div>
-          <div class="profile-accent-2"></div>
-          <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki" class="profile-image">
-        </div>
-        <div class="profile-content">
-          <span class="section-label">About Me</span>
-          <h2>Building & testing <span>what matters</span></h2>
-          <p>I don't just build products — I validate them. With a foundation in Instrumentation & Control Engineering and hands-on experience in B2B market research, I bridge the gap between technical complexity and business viability.</p>
-          <p>My approach: Rapid experimentation. Cold outreach. Real prospect conversations. Every insight comes from actual market feedback, not assumptions.</p>
-          <div class="contact-bar">
-            <a href="mailto:sdhruvil51@gmail.com" class="contact-item"><span class="contact-icon">✉</span>sdhruvil51@gmail.com</a>
-            <a href="tel:+919824676660" class="contact-item"><span class="contact-icon">📞</span>+91 98246 76660</a>
-            <a href="https://wa.me/919824676660" target="_blank" class="contact-item"><span class="contact-icon">💬</span>WhatsApp</a>
+  <main>
+    <!-- Hero Section — Minimalist with large typography -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">Founder & Market Researcher</span>
+            <h1 class="hero-title">Building clarity from complexity.</h1>
+            <p class="hero-description">Instrumentation engineer turned product validator. I help B2B concepts find product-market fit through rapid experimentation and data-driven insight.</p>
+            <div class="hero-cta">
+              <a href="work.html" class="btn-primary">View case study</a>
+              <a href="contact.html" class="btn-secondary">Get in touch</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="stat-block">
+              <div class="stat-item">
+                <span class="stat-number">20%</span>
+                <span class="stat-label">Response rate</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Outreach</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">4–20x</span>
+                <span class="stat-label">vs industry</span>
+              </div>
+            </div>
+            <div class="hero-graphic">
+              <div class="circle-chart"></div>
+              <div class="bar-chart">
+                <div class="bar" style="height: 60%"></div>
+                <div class="bar" style="height: 85%"></div>
+                <div class="bar" style="height: 40%"></div>
+                <div class="bar" style="height: 70%"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="stats-graphic">
-    <div class="container">
-      <span class="section-label">Performance Metrics</span>
-      <div class="graphic-grid">
-        <div class="graphic-card"><div class="graphic-icon">📊</div><div class="graphic-number">20%</div><div class="graphic-label">Response Rate</div><div class="graphic-desc">On 50+ cold outreach emails</div><div class="trend-indicator">↑ 400% vs industry avg</div></div>
-        <div class="graphic-card"><div class="graphic-icon">🎯</div><div class="graphic-number">60</div><div class="graphic-label">Days Sprint</div><div class="graphic-desc">From concept to validation</div><div class="trend-indicator">Lean methodology</div></div>
-        <div class="graphic-card"><div class="graphic-icon">⚡</div><div class="graphic-number">3</div><div class="graphic-label">Key Insights</div><div class="graphic-desc">Actionable market learnings</div><div class="trend-indicator">Data-driven decisions</div></div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="line"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="website-card">
-    <div class="container">
-      <div class="link-showcase">
-        <div class="link-info"><h3>Altrion Advisors</h3><p>Live validation platform</p></div>
-        <a href="https://altrion-orchestrate-connect.lovable.app" target="_blank" class="link-btn">Visit Website →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="expertise">
-    <div class="container">
-      <span class="section-label">What I Do</span>
-      <div class="expertise-grid">
-        <div class="expertise-card"><div class="card-icon">◆</div><h3>Market Validation</h3><p>60-day sprints to test B2B concepts. Landing pages, cold outreach campaigns, and data-driven go/no-go decisions.</p></div>
-        <div class="expertise-card"><div class="card-icon">◆</div><h3>Technical Translation</h3><p>Bridging industrial automation (PLC, IoT, Control Panels) with business outcomes. I speak both engineer and founder.</p></div>
-        <div class="expertise-card"><div class="card-icon">◆</div><h3>Lean Execution</h3><p>Minimal viable products. Maximum learning per dollar. AI-assisted development for rapid prototyping.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="featured">
-    <div class="container">
-      <div class="featured-header">
-        <div class="featured-title"><span class="section-label">Featured Project</span><h2>Altrion Advisors</h2></div>
-        <span class="featured-badge">60-Day Validation Sprint</span>
-      </div>
-      <div class="project-showcase">
-        <div class="project-info">
-          <h3>Transparent Vendor Orchestration</h3>
-          <p>Tested whether businesses would pay for a single-SLA platform combining industrial automation and digital services under one transparent contract.</p>
-          <div class="project-tags"><span class="project-tag">Market Research</span><span class="project-tag">B2B Outreach</span><span class="project-tag">PLC/IoT</span><span class="project-tag">Web Dev</span></div>
-          <div class="project-metrics">
-            <div class="project-metric"><div class="value">20%</div><div class="label">Response Rate</div></div>
-            <div class="project-metric"><div class="value">50+</div><div class="label">Outreach</div></div>
-            <div class="project-metric"><div class="value">4–20x</div><div class="label">Industry Benchmark</div></div>
+    <!-- Brief Intro Section -->
+    <section class="intro">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-text">
+            <h2>I validate ideas before they're built.</h2>
+            <p>Most founders build in the dark. I turn on the lights with 60-day validation sprints: landing pages, cold outreach, and real prospect conversations. No vanity metrics — only learnings that matter.</p>
           </div>
-          <p style="color: var(--accent-green); font-size: 13px;">✓ Key insight: Geographic restrictions matter — pivoting to US-focused PLC panel niche.</p>
-        </div>
-        <div class="project-visual-graphic">
-          <div class="graphic-circle"></div>
-          <div class="graphic-bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-          <p style="color: #aaa; margin-top: 20px; font-size: 12px;">Response rate visualization</p>
+          <div class="intro-image">
+            <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="timeline-section">
+    <!-- Featured Project Preview -->
+    <section class="featured-preview">
+      <div class="container">
+        <span class="eyebrow">Featured case study</span>
+        <div class="preview-card">
+          <div class="preview-content">
+            <h3>Altrion Advisors</h3>
+            <p class="preview-desc">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
+            <ul class="preview-tags">
+              <li>Market Validation</li>
+              <li>B2B Outreach</li>
+              <li>PLC/IoT</li>
+            </ul>
+            <a href="work.html" class="text-link">Read the case study →</a>
+          </div>
+          <div class="preview-metrics">
+            <div class="metric">
+              <span class="value">20%</span>
+              <span class="label">Response rate</span>
+            </div>
+            <div class="metric">
+              <span class="value">50+</span>
+              <span class="label">Prospects reached</span>
+            </div>
+            <div class="metric">
+              <span class="value">3</span>
+              <span class="label">Key insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-      <span class="section-label">Validation Process</span>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-dot">1</div><div class="timeline-label">Research</div><div class="timeline-date">Week 1-2</div></div>
-        <div class="timeline-item"><div class="timeline-dot">2</div><div class="timeline-label">Build</div><div class="timeline-date">Week 3-4</div></div>
-        <div class="timeline-item"><div class="timeline-dot">3</div><div class="timeline-label">Outreach</div><div class="timeline-date">Week 5-6</div></div>
-        <div class="timeline-item"><div class="timeline-dot">4</div><div class="timeline-label">Analyze</div><div class="timeline-date">Week 7-8</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="resume-cta">
-    <div class="container">
-      <div class="resume-card">
-        <h3>Ready to collaborate?</h3>
-        <p>Full project documentation and detailed resume available for download.</p>
-        <div class="button-group">
-          <a href="https://drive.google.com/file/d/1w0aPZ9df1XR2uj33T39xiAFrhEC3TY_l/view?usp=drivesdk" target="_blank" class="btn-primary">Download Resume (PDF)</a>
-          <a href="https://wa.me/919824676660" target="_blank" class="btn-secondary">Chat on WhatsApp</a>
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>© 2026 Dhruvil Solanki</p>
+        </div>
+        <div class="footer-right">
+          <a href="mailto:sdhruvil51@gmail.com">Email</a>
+          <a href="https://wa.me/919824676660">WhatsApp</a>
+          <a href="https://drive.google.com/file/d/1w0aPZ9df1XR2uj33T39xiAFrhEC3TY_l/view?usp=drivesdk">Resume</a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <div class="container">
-    <footer>
-      <div>© Dhruvil Solanki 2026</div>
-      <div class="social-links">
-        <a href="mailto:sdhruvil51@gmail.com">Email</a>
-        <a href="https://wa.me/919824676660" target="_blank">WhatsApp</a>
-        <a href="https://drive.google.com/file/d/1w0aPZ9df1XR2uj33T39xiAFrhEC3TY_l/view?usp=drivesdk" target="_blank">Resume</a>
-      </div>
-      <div>Ahmedabad, IN · +91 98246 76660</div>
-    </footer>
-  </div>
-
-  <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
