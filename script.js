@@ -3,7 +3,6 @@
   const body = document.body;
   const toggle = document.getElementById('theme-toggle');
   
-  // Load saved theme or default to system
   const saved = localStorage.getItem('theme') || 'system';
   body.setAttribute('data-theme', saved);
 
@@ -41,7 +40,6 @@
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Particles
   const particlesCount = window.innerWidth < 768 ? 300 : 800;
   const geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(particlesCount * 3);
@@ -78,7 +76,6 @@
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
 
-  // Animate
   function animate() {
     requestAnimationFrame(animate);
     particles.rotation.x += 0.0003;
@@ -87,7 +84,6 @@
   }
   animate();
 
-  // Resize
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
