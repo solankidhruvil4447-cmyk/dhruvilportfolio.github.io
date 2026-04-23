@@ -6,8 +6,27 @@
   <title>Work — Dhruvil Solanki</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .case-study-header { padding: 5rem 0 3rem; text-align: center; }
+    .case-title { font-size: clamp(3rem, 10vw, 5rem); margin-bottom: 1rem; }
+    .case-subtitle { font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem; color: var(--text-secondary); }
+    .case-meta { display: flex; justify-content: center; gap: 2rem; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; }
+    .live-link { color: var(--primary); font-weight: 600; }
+    .case-section { padding: 4rem 0; }
+    .case-section.dark-bg { background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .bar-compare { max-width: 500px; }
+    .bar-item { margin-bottom: 1.5rem; }
+    .bar-label { font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .bar-bg { height: 40px; background: var(--border-light); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--text-muted); display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem; font-weight: 600; color: white; }
+    .bar-fill.highlight { background: var(--primary); }
+    .img-crop-website { object-fit: cover; object-position: 0px -100px; }
+    .img-crop-gmail { object-fit: cover; object-position: 0px -120px; }
+    .img-crop-email { object-fit: cover; object-position: 0px -160px; }
+    .img-crop-brochure { object-fit: contain; background: var(--bg-card); }
+  </style>
 </head>
-<body class="dark">
+<body data-theme="system">
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -16,13 +35,83 @@
         <a href="work.html" class="active">Work</a>
         <a href="report.html">Report</a>
         <a href="contact.html">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span><span class="icon-auto">🌓</span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- content unchanged from previous work.html (same as before) -->
   <main>
-    <!-- ... existing case study content ... -->
+    <section class="case-study-header">
+      <div class="container">
+        <span class="eyebrow">Case Study — 60-Day Validation Sprint</span>
+        <h1 class="case-title">Altrion Advisors</h1>
+        <p class="case-subtitle">Testing transparent vendor orchestration for B2B industrial + digital services.</p>
+        <div class="case-meta">
+          <span>Q1 2026</span><span>Founder & Lead Researcher</span>
+          <a href="https://altrion-orchestrate-connect.lovable.app" target="_blank" class="live-link">Live prototype →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="container narrow">
+        <h2>The problem</h2>
+        <p>Businesses needing both industrial automation (PLC panels, IoT) and digital services (web dev, support) must manage 3–5 separate vendors. This creates fragmented communication, unpredictable costs, and no single point of accountability.</p>
+        <h2>Our hypothesis</h2>
+        <p>A single contract with transparent line-item pricing — showing vendor cost and our fee separately — would appeal to operations leaders tired of vendor chaos.</p>
+      </div>
+    </section>
+
+    <section class="case-section dark-bg">
+      <div class="container narrow">
+        <h2>What we built & tested</h2>
+        <ul class="check-list">
+          <li><strong>Landing page:</strong> 6-section responsive site on Lovable.dev showcasing service integration.</li>
+          <li><strong>Pricing model:</strong> "What you pay is what you see" — vendor cost + 18% fee, fully transparent.</li>
+          <li><strong>Outreach campaign:</strong> 50+ personalized cold emails to CTOs and Ops heads at B2B SaaS/industrial firms.</li>
+          <li><strong>Follow-up sequence:</strong> Day 1, Day 3, Day 7 multi-touch cadence.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="container narrow">
+        <h2>Results & metrics</h2>
+        <div class="results-grid">
+          <div class="result-card"><span class="result-number">20%</span><span class="result-label">Reply rate</span><p>10 replies from 50 emails, 4–20x industry average.</p></div>
+          <div class="result-card"><span class="result-number">3</span><span class="result-label">Meaningful engagements</span><p>Helcim (rejection with insights), Konstruct, Jane Team.</p></div>
+          <div class="result-card"><span class="result-number">1</span><span class="result-label">Discovery call</span><p>Full scoping conversation on industrial control panels.</p></div>
+        </div>
+        <div class="comparison-viz">
+          <div class="bar-compare">
+            <div class="bar-item"><div class="bar-label">Industry avg</div><div class="bar-bg"><div class="bar-fill" style="width:3%">3%</div></div></div>
+            <div class="bar-item"><div class="bar-label">Altrion</div><div class="bar-bg"><div class="bar-fill highlight" style="width:20%">20%</div></div></div>
+          </div>
+          <p class="viz-caption">Response rate comparison</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="container narrow">
+        <h2>Key insights</h2>
+        <div class="insight-grid">
+          <div class="insight"><h4>Geographic restrictions</h4><p>Helcim only supports US/Canada — a critical filter for our global positioning.</p></div>
+          <div class="insight"><h4>Partner definitions vary</h4><p>"Partner" meant "SaaS integrator" to Helcim, not "services orchestrator."</p></div>
+          <div class="insight"><h4>Sales cycles > 60 days</h4><p>Industrial trust-building requires 3–6 months; sprint length insufficient for close.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section highlight">
+      <div class="container narrow">
+        <span class="eyebrow">Next experiment</span>
+        <h3>Pivot: PLC Panel Upgrades with Full Transparency</h3>
+        <p>Single-use-case landing page targeting Plant Managers at US manufacturers. LinkedIn outreach + retargeting 10 warm replies.</p>
+      </div>
+    </section>
   </main>
 
   <footer>
