@@ -3,11 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhruvil Solanki — Founder & Researcher</title>
+  <title>Dhruvil Solanki — Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .hero-title { font-size: clamp(3.5rem, 8vw, 5.5rem); line-height: 1.05; margin-bottom: 1.5rem; }
+    .hero-title span { color: var(--primary); }
+    .hero-desc { font-size: 1.15rem; color: var(--text-secondary); max-width: 500px; margin-bottom: 2.5rem; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .stat-row { display: flex; gap: 2.5rem; margin-top: 3rem; }
+    .stat-item .num { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+    .stat-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
+    .hero-visual-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      animation: float3d 5s ease-in-out infinite;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-visual-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: 0px -100px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--primary), transparent); margin: 0.5rem auto 0; }
+    .intro-section { padding: 6rem 0; }
+    .intro-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
+    .intro-image img { width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+    .preview-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+    .preview-metrics { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
+    .text-link { color: var(--primary); font-weight: 600; }
+    @media (max-width: 768px) {
+      .hero-grid, .intro-grid, .preview-card { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body data-theme="system">
+  <canvas id="bg-canvas"></canvas>
+
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -26,65 +83,67 @@
   </nav>
 
   <main>
-    <section class="hero">
+    <section class="hero-section section">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content">
+          <div>
             <span class="eyebrow">Founder & Market Researcher</span>
-            <h1 class="hero-title">Building clarity from complexity.</h1>
-            <p class="hero-description">Instrumentation engineer turned product validator. I help B2B concepts find product-market fit through rapid experimentation and data-driven insight.</p>
+            <h1 class="hero-title">Building clarity from <span>complexity</span>.</h1>
+            <p class="hero-desc">Instrumentation engineer turned product validator. I help B2B concepts find product-market fit through rapid experimentation and data-driven insight.</p>
             <div class="hero-cta">
-              <a href="work.html" class="btn-primary">View case study</a>
-              <a href="report.html" class="btn-secondary">Read full report</a>
+              <a href="work.html" class="btn-primary">View Case Study</a>
+              <a href="report.html" class="btn-secondary">Read Full Report</a>
+            </div>
+            <div class="stat-row">
+              <div class="stat-item"><div class="num">20%</div><div class="label">Response Rate</div></div>
+              <div class="stat-item"><div class="num">50+</div><div class="label">Outreach</div></div>
+              <div class="stat-item"><div class="num">4–20×</div><div class="label">vs Industry</div></div>
             </div>
           </div>
-          <div class="hero-visual">
-            <div class="stat-block">
-              <div class="stat-item"><span class="stat-number">20%</span><span class="stat-label">Response rate</span></div>
-              <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Outreach</span></div>
-              <div class="stat-item"><span class="stat-number">4–20x</span><span class="stat-label">vs industry</span></div>
-            </div>
-            <div class="hero-graphic">
-              <div class="circle-chart"></div>
-              <div class="bar-chart">
-                <div class="bar" style="height:60%"></div><div class="bar" style="height:85%"></div><div class="bar" style="height:40%"></div><div class="bar" style="height:70%"></div>
-              </div>
-            </div>
+          <div class="hero-visual-card">
+            <img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" alt="Altrion Platform">
+            <div style="margin-top: 1rem; color: var(--primary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;">Live Platform</div>
+            <div style="font-size: 0.9rem; color: var(--text-secondary);">altrion-orchestrate-connect.lovable.app</div>
           </div>
         </div>
       </div>
-      <div class="scroll-hint"><span>Scroll</span><div class="line"></div></div>
+      <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
     </section>
 
-    <section class="intro">
+    <section class="intro-section section">
       <div class="container">
         <div class="intro-grid">
-          <div class="intro-text">
+          <div>
             <h2>I validate ideas before they're built.</h2>
             <p>Most founders build in the dark. I turn on the lights with 60-day validation sprints: landing pages, cold outreach, and real prospect conversations. No vanity metrics — only learnings that matter.</p>
+            <p>With a foundation in Instrumentation & Control Engineering and experience in Accounts Receivable (RCM), I bring analytical rigor to early-stage B2B validation.</p>
           </div>
           <div class="intro-image">
-            <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki" style="width:100%; height:auto; max-height:500px; object-fit:contain; border-radius:12px;">
+            <img src="https://i.ibb.co/dJ6rTsP0/file-0000000086f471faa27a6338b90f1944.png" alt="Dhruvil Solanki">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="featured-preview">
+    <section class="section">
       <div class="container">
-        <span class="eyebrow">Featured case study</span>
+        <span class="eyebrow">Featured Case Study</span>
         <div class="preview-card">
-          <div class="preview-content">
-            <h3>Altrion Advisors</h3>
-            <p class="preview-desc">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
-            <ul class="preview-tags"><li>Market Validation</li><li>B2B Outreach</li><li>PLC/IoT</li></ul>
+          <div>
+            <h3 style="font-size: 2rem; margin-bottom: 0.8rem;">Altrion Advisors</h3>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
+            <div class="tags" style="margin-bottom: 1.5rem;">
+              <span class="tag">Market Validation</span>
+              <span class="tag">B2B Outreach</span>
+              <span class="tag">PLC/IoT</span>
+            </div>
             <a href="work.html" class="text-link">Read the case study →</a>
-            <a href="report.html" class="text-link" style="margin-left:2rem;">Full project report →</a>
+            <a href="report.html" class="text-link" style="margin-left: 2rem;">Full project report →</a>
           </div>
           <div class="preview-metrics">
-            <div class="metric"><span class="value">20%</span><span class="label">Response rate</span></div>
-            <div class="metric"><span class="value">50+</span><span class="label">Prospects reached</span></div>
-            <div class="metric"><span class="value">3</span><span class="label">Key insights</span></div>
+            <div><div class="metric-value">20%</div><div class="metric-label">Response Rate</div></div>
+            <div><div class="metric-value">50+</div><div class="metric-label">Prospects Reached</div></div>
+            <div><div class="metric-value">3</div><div class="metric-label">Key Insights</div></div>
           </div>
         </div>
       </div>
@@ -94,16 +153,18 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-left"><p>© 2026 Dhruvil Solanki</p></div>
-        <div class="footer-right">
+        <p>© 2026 Dhruvil Solanki</p>
+        <div class="footer-links">
           <a href="mailto:sdhruvil51@gmail.com">Email</a>
           <a href="https://wa.me/919824676660">WhatsApp</a>
           <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Resume</a>
         </div>
+        <p>Ahmedabad, IN · +91 98246 76660</p>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
