@@ -19,15 +19,11 @@
     .section-title h2::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 4rem; height: 3px; background: var(--primary); }
     .gallery-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
     .gallery-row img { width: 100%; height: 180px; object-fit: cover; object-position: 0px -160px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); }
-    @media (max-width: 768px) {
-      .report-hero { grid-template-columns: 1fr; }
-      .gallery-row { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .report-hero { grid-template-columns: 1fr; } .gallery-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body data-theme="system">
   <canvas id="bg-canvas"></canvas>
-
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -42,15 +38,14 @@
       </div>
     </div>
   </nav>
-
   <main>
     <div class="container">
       <div class="report-hero">
         <div>
           <span class="eyebrow">Market Validation Study · Q1 2026</span>
           <h1>Transparent Orchestration</h1>
-          <p style="font-size: 1.15rem; color: var(--text-secondary);">Testing a single‑SLA vendor platform that combines industrial automation and digital services under one transparent contract.</p>
-          <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+          <p style="font-size:1.15rem;color:var(--text-secondary);">Testing a single‑SLA vendor platform that combines industrial automation and digital services under one transparent contract.</p>
+          <div style="display:flex;gap:2rem;margin-top:2rem;">
             <div><div class="metric-value">60</div><div class="metric-label">Days Active</div></div>
             <div><div class="metric-value">50+</div><div class="metric-label">Outreach</div></div>
             <div><div class="metric-value">20%</div><div class="metric-label">Response Rate</div></div>
@@ -58,10 +53,9 @@
         </div>
         <div class="report-img-card">
           <img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" alt="Platform">
-          <div style="margin-top: 0.8rem; color: var(--primary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;">Live Platform · altrion-orchestrate-connect.lovable.app</div>
+          <div style="margin-top:0.8rem;color:var(--primary);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;">Live Platform · altrion-orchestrate-connect.lovable.app</div>
         </div>
       </div>
-
       <div class="section-title"><h2>Performance at a Glance</h2></div>
       <div class="grid-4" style="margin-top:2rem;">
         <div class="card"><div class="metric-value">50+</div><div class="metric-label">Emails Sent</div><p style="font-size:0.85rem;">Targeted CTOs, Founders & Ops Heads at B2B SaaS and industrial firms.</p></div>
@@ -69,29 +63,25 @@
         <div class="card"><div class="metric-value">10</div><div class="metric-label">Replies</div><p style="font-size:0.85rem;">Including 3 meaningful engagements with detailed feedback.</p></div>
         <div class="card"><div class="metric-value">1</div><div class="metric-label">Discovery Call</div><p style="font-size:0.85rem;">Full scoping conversation on industrial control panel integration.</p></div>
       </div>
-
       <div class="section-title"><h2>Response Rate Benchmark</h2></div>
-      <div style="display:flex; gap:2rem; align-items:center; flex-wrap:wrap; margin-top:1.5rem;">
-        <div style="flex:1; min-width:250px;">
+      <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <div style="flex:1;min-width:250px;">
           <div style="margin-bottom:1rem;"><span>Industry Average</span><div class="bar-bg"><div class="bar-fill muted" style="width:3%">3%</div></div></div>
           <div><span style="color:var(--primary)">Altrion Advisors</span><div class="bar-bg"><div class="bar-fill highlight" style="width:20%">20%</div></div></div>
         </div>
         <div class="card" style="text-align:center;"><div class="metric-value" style="font-size:4rem;">4–20×</div><div class="metric-label">Higher Response Rate</div></div>
       </div>
-
       <div class="highlight-box">
         <div class="metric-value" style="font-size:5rem;">20%</div>
-        <div class="metric-label" style="font-size:1.2rem; color:var(--text-primary);">Email Response Rate — 4‑20× above industry benchmark</div>
+        <div class="metric-label" style="font-size:1.2rem;color:var(--text-primary);">Email Response Rate — 4‑20× above industry benchmark</div>
         <p style="margin-top:1rem;">Businesses want an alternative to fragmented vendor management.</p>
       </div>
-
       <div class="section-title"><h2>The Platform</h2></div>
       <div class="gallery-row">
-        <div class="card"><img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" style="width:100%; height:160px; object-fit:cover; object-position:0px -100px; border-radius:var(--radius-sm);"><h4 style="margin-top:1rem;">Hero Section</h4><p style="font-size:0.85rem;">"One Partnership. Infinite Execution" — 8 service categories.</p></div>
-        <div class="card"><img src="https://i.ibb.co/hFm5CB9s/Screenshot-20260423-005621-Chrome.jpg" style="width:100%; height:160px; object-fit:cover; object-position:0px -100px; border-radius:var(--radius-sm);"><h4 style="margin-top:1rem;">Transparency Pricing</h4><p style="font-size:0.85rem;">Line‑item breakdown separating vendor cost from Altrion's 18% fee.</p></div>
-        <div class="card"><img src="https://i.ibb.co/bjfC0r2S/Altrion-Solutions-Brochure-9.jpg" style="width:100%; height:160px; object-fit:contain; background:var(--bg-card);"><h4 style="margin-top:1rem;">Service Brochure</h4><p style="font-size:0.85rem;">Industrial automation & digital services integration.</p></div>
+        <div class="card"><img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" style="width:100%;height:160px;object-fit:cover;object-position:0px -100px;border-radius:var(--radius-sm);"><h4 style="margin-top:1rem;">Hero Section</h4><p style="font-size:0.85rem;">"One Partnership. Infinite Execution" — 8 service categories.</p></div>
+        <div class="card"><img src="https://i.ibb.co/hFm5CB9s/Screenshot-20260423-005621-Chrome.jpg" style="width:100%;height:160px;object-fit:cover;object-position:0px -100px;border-radius:var(--radius-sm);"><h4 style="margin-top:1rem;">Transparency Pricing</h4><p style="font-size:0.85rem;">Line‑item breakdown separating vendor cost from Altrion's 18% fee.</p></div>
+        <div class="card"><img src="https://i.ibb.co/bjfC0r2S/Altrion-Solutions-Brochure-9.jpg" style="width:100%;height:160px;object-fit:contain;background:var(--bg-card);"><h4 style="margin-top:1rem;">Service Brochure</h4><p style="font-size:0.85rem;">Industrial automation & digital services integration.</p></div>
       </div>
-
       <div class="section-title"><h2>Outreach Campaign</h2></div>
       <div class="table-wrapper">
         <table class="data-table">
@@ -106,9 +96,8 @@
       <div class="tags" style="margin:1.5rem 0;">
         <span class="tag">MachineMetrics</span><span class="tag">Eigen Innovations</span><span class="tag">Zip</span><span class="tag">Innovate‑Ops</span><span class="tag">Orkes</span><span class="tag">Konstruct Digital</span><span class="tag">7shifts</span><span class="tag">Helcim</span><span class="tag">Jane Team</span><span class="tag">+40 more</span>
       </div>
-      <img src="https://i.ibb.co/4ZqTCVJB/Screenshot-20260423-005713-Gmail.jpg" style="width:100%; height:280px; object-fit:cover; object-position:0px -120px; border-radius:var(--radius-md); border:1px solid var(--border-light);" alt="Gmail Sent">
-      <p style="text-align:center; color:var(--text-muted); margin-top:0.5rem;">Gmail sent folder — "Impressed by what [Company] is building."</p>
-
+      <img src="https://i.ibb.co/4ZqTCVJB/Screenshot-20260423-005713-Gmail.jpg" style="width:100%;height:280px;object-fit:cover;object-position:0px -120px;border-radius:var(--radius-md);border:1px solid var(--border-light);" alt="Gmail Sent">
+      <p style="text-align:center;color:var(--text-muted);margin-top:0.5rem;">Gmail sent folder — "Impressed by what [Company] is building."</p>
       <div class="section-title"><h2>What We Learned</h2></div>
       <div class="grid-2" style="margin-top:1.5rem;">
         <div class="card"><h4 style="color:var(--primary);">🌍 Geographic Restrictions</h4><p>Helcim only supports US/Canada — a critical filter we hadn't considered.</p></div>
@@ -116,19 +105,16 @@
         <div class="card"><h4 style="color:var(--primary);">⏳ Longer Sales Cycles</h4><p>Zero contracts in 60 days; industrial trust requires 3‑6 months.</p></div>
         <div class="card"><h4 style="color:var(--primary);">📧 Direct Contact Wins</h4><p>7shifts sent automated reply; our inquiry missed decision-makers.</p></div>
       </div>
-
       <div class="quote-block">
         <blockquote>After reviewing your application for Altrion Systems, we will not be moving forward with a formal partnership. Our Partner Program is strictly reserved for SaaS Integrators… Helcim only supports businesses in the United States and Canada.</blockquote>
         <cite>— Helcim Partner Team</cite>
       </div>
-
       <div class="section-title"><h2>Prospect Responses</h2></div>
       <div class="gallery-row">
         <img src="https://i.ibb.co/W43xG1DF/Screenshot-20260423-005835-Gmail.jpg" alt="Helcim 1">
         <img src="https://i.ibb.co/Df5Jd3yK/Screenshot-20260423-005848-Gmail.jpg" alt="Helcim 2">
         <img src="https://i.ibb.co/1tw79DqN/Screenshot-20260423-005728-Gmail.jpg" alt="Konstruct">
       </div>
-
       <div class="recommendation">
         <span class="eyebrow">Recommended Pivot</span>
         <h3>PLC Panel Upgrades with Full Transparency</h3>
@@ -137,14 +123,12 @@
           <div><strong>Channel Strategy</strong><p>LinkedIn outreach + retargeting ads to the 10 warm email replies.</p></div>
         </div>
       </div>
-
       <div class="section-title"><h2>Competencies Demonstrated</h2></div>
       <div class="tags" style="margin-top:1.5rem;">
         <span class="tag">Market Validation</span><span class="tag">Lean Startup</span><span class="tag">B2B Cold Emails</span><span class="tag">Response Rate Analysis</span><span class="tag">AI‑Assisted Web Dev</span><span class="tag">Value Proposition Design</span><span class="tag">CRM Pipeline</span><span class="tag">Technical Writing</span><span class="tag">Industrial IoT</span><span class="tag">PLC/Panel Knowledge</span><span class="tag">A/B Testing</span><span class="tag">Data Visualization</span>
       </div>
     </div>
   </main>
-
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -152,12 +136,11 @@
         <div class="footer-links">
           <a href="mailto:sdhruvil51@gmail.com">Email</a>
           <a href="https://wa.me/919824676660">WhatsApp</a>
-          <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Resume</a>
+          <a href="https://drive.google.com/file/d/1WpJYf5rxTP9i9epY9Pnmf2KEPpZ7sfYk/view?usp=drivesdk" target="_blank">Resume</a>
         </div>
       </div>
     </div>
   </footer>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
