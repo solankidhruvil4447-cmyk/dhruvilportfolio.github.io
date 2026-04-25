@@ -6,20 +6,12 @@
   <title>Dhruvil Solanki – Founder & Market Researcher</title>
   <meta name="description" content="Portfolio of Dhruvil Solanki, instrumentation engineer turned B2B product validator. 60-day validation sprints, real data, no vanity metrics.">
   <meta name="keywords" content="market validation, B2B research, product validator, instrumentation engineer, PLC, IoT, portfolio">
-
-  <!-- Security meta tags -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://i.ibb.co https://images.unsplash.com data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Frame-Options" content="DENY">
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
+    .hero-section { min-height: 100vh; display: flex; align-items: center; position: relative; }
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .hero-title { font-size: clamp(3.5rem, 8vw, 5.5rem); line-height: 1.05; margin-bottom: 1.5rem; }
     .hero-title span { color: var(--primary); }
@@ -28,35 +20,9 @@
     .stat-row { display: flex; gap: 2.5rem; margin-top: 3rem; }
     .stat-item .num { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
     .stat-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
-    .hero-visual-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-      animation: float3d 5s ease-in-out infinite;
-      box-shadow: var(--shadow-lg);
-    }
-    .hero-visual-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      object-position: 0px -100px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
-    }
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-    }
+    .hero-visual-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; transform-style: preserve-3d; perspective: 1000px; animation: float3d 5s ease-in-out infinite; box-shadow: var(--shadow-lg); }
+    .hero-visual-card img { width: 100%; height: 250px; object-fit: cover; object-position: 0px -100px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); text-align: center; color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; }
     .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--primary), transparent); margin: 0.5rem auto 0; }
     .intro-section { padding: 6rem 0; }
     .intro-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
@@ -64,14 +30,11 @@
     .preview-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
     .preview-metrics { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
     .text-link { color: var(--primary); font-weight: 600; }
-    @media (max-width: 768px) {
-      .hero-grid, .intro-grid, .preview-card { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .hero-grid, .intro-grid, .preview-card { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body data-theme="system">
   <canvas id="bg-canvas"></canvas>
-
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">Dhruvil<span>.</span>Solanki</a>
@@ -81,14 +44,11 @@
         <a href="report.html">Report</a>
         <a href="contact.html">Contact</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-          <span class="icon-auto">🌓</span>
+          <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span><span class="icon-auto">🌓</span>
         </button>
       </div>
     </div>
   </nav>
-
   <main>
     <section class="hero-section section">
       <div class="container">
@@ -109,14 +69,13 @@
           </div>
           <div class="hero-visual-card">
             <img src="https://i.ibb.co/9jBSfP7/Screenshot-20260423-005520-Chrome.jpg" alt="Altrion Platform">
-            <div style="margin-top: 1rem; color: var(--primary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;">Live Platform</div>
-            <div style="font-size: 0.9rem; color: var(--text-secondary);">altrion-orchestrate-connect.lovable.app</div>
+            <div style="margin-top:1rem;color:var(--primary);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;">Live Platform</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary);">altrion-orchestrate-connect.lovable.app</div>
           </div>
         </div>
       </div>
       <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
     </section>
-
     <section class="intro-section section">
       <div class="container">
         <div class="intro-grid">
@@ -131,21 +90,18 @@
         </div>
       </div>
     </section>
-
     <section class="section">
       <div class="container">
         <span class="eyebrow">Featured Case Study</span>
         <div class="preview-card">
           <div>
-            <h3 style="font-size: 2rem; margin-bottom: 0.8rem;">Altrion Advisors</h3>
-            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
-            <div class="tags" style="margin-bottom: 1.5rem;">
-              <span class="tag">Market Validation</span>
-              <span class="tag">B2B Outreach</span>
-              <span class="tag">PLC/IoT</span>
+            <h3 style="font-size:2rem;margin-bottom:0.8rem;">Altrion Advisors</h3>
+            <p style="font-size:1.1rem;color:var(--text-secondary);margin-bottom:1rem;">Testing the viability of transparent vendor orchestration for industrial + digital services.</p>
+            <div class="tags" style="margin-bottom:1.5rem;">
+              <span class="tag">Market Validation</span><span class="tag">B2B Outreach</span><span class="tag">PLC/IoT</span>
             </div>
             <a href="work.html" class="text-link">Read the case study →</a>
-            <a href="report.html" class="text-link" style="margin-left: 2rem;">Full project report →</a>
+            <a href="report.html" class="text-link" style="margin-left:2rem;">Full project report →</a>
           </div>
           <div class="preview-metrics">
             <div><div class="metric-value">20%</div><div class="metric-label">Response Rate</div></div>
@@ -156,7 +112,6 @@
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -164,13 +119,12 @@
         <div class="footer-links">
           <a href="mailto:sdhruvil51@gmail.com">Email</a>
           <a href="https://wa.me/919824676660">WhatsApp</a>
-          <a href="https://drive.google.com/file/d/1l3PNWRHk5hNbnBBMLVoUtPA18QA3TPi0/view?usp=drivesdk" target="_blank">Resume</a>
+          <a href="https://drive.google.com/file/d/1WpJYf5rxTP9i9epY9Pnmf2KEPpZ7sfYk/view?usp=drivesdk" target="_blank">Resume</a>
         </div>
         <p>Ahmedabad, IN · +91 98246 76660</p>
       </div>
     </div>
   </footer>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
